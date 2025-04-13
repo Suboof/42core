@@ -6,7 +6,7 @@
 /*   By: cstirber <cstirber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 20:22:39 by cstirber          #+#    #+#             */
-/*   Updated: 2025/04/12 16:13:37 by cstirber         ###   ########.fr       */
+/*   Updated: 2025/04/13 19:18:46 by cstirber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@
 # include "../libft/printf/ft_printf.h"
 
 // Key macros
+
+# ifndef OPEN_DIRECTORY
+#  define OPEN_DIRECTORY 00200000
+# endif
 
 # ifdef __linux__
 #  define KEY_W 119
@@ -48,16 +52,29 @@
 typedef struct	s_map
 {
 	char	**map;
-	void	*objects;
-	int		x;
-	int		y;
-	int		pickups;
+	char	*path;
+	int		fd;
+	int		count_line;
+	size_t	len;
+	int		p;			// player
+	int		e;			// exit
+	int		c;			// coll
+	int		pos_exit;	// exit possible? (path to exit)
+	int		coll;		// collected
 }				t_map;
 
 typedef struct	s_img
 {
+	void	*mlx_img;
+	void	*wall;
 	void	*player;
 	void	*background;
+	void	*exit;
+	void	*pickup;
+	int		width;
+	int		height;
+	int		line_len;
+
 }				t_img;
 
 typedef struct	s_game
@@ -66,12 +83,13 @@ typedef struct	s_game
 	void	*win;
 	int		map_width;		// count x		
 	int		map_height;		// count y
-	int		player_x;		// moves up/down
-	int		player_y;		// moves left/right
-	int		coll;			// collectibles
-	int		moves_counter;
-	t_map	*map;
-	t_img	*img;
+	int		p_x;		// moves up/down
+	int		p_y;		// moves left/right
+	int		x;
+	int		y;
+	int		count_moves;
+	t_map	map;
+	t_img	img;
 }				t_game;
 
 // Functions
@@ -81,5 +99,9 @@ void	load_map(t_game *game, const char *file);
 void	render_map(t_game *game);
 void	handle_input(int keycode, t_game *game);
 void	free_game(t_game *game);					// freeeee mallocccc
+
+// CHECKERS
+
+int	check_ext(char *path);r
 
 #endif

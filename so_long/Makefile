@@ -6,7 +6,7 @@
 #    By: cstirber <cstirber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/02 18:24:13 by cstirber          #+#    #+#              #
-#    Updated: 2025/04/12 17:50:06 by cstirber         ###   ########.fr        #
+#    Updated: 2025/04/13 19:18:44 by cstirber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ PRINTF_LIB = $(PRINTF_PATH)ft_printf.a
 
 R = "\033[31m"
 
-SRC_FILES = main.c map.c
+SRC_FILES = main.c check_ber.c
 
 SRC = $(addprefix src/, $(SRC_FILES))
 
