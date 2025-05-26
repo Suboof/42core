@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cstirber <cstirber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 20:22:39 by cstirber          #+#    #+#             */
-/*   Updated: 2025/04/13 19:18:46 by cstirber         ###   ########.fr       */
+/*   Updated: 2025/04/14 18:12:58 by chris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,6 @@ void	free_game(t_game *game);					// freeeee mallocccc
 
 // CHECKERS
 
-int	check_ext(char *path);r
+int	check_ext(char *path);
 
 #endif
